@@ -1,7 +1,6 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'approval_page_hod.dart';
 
 class ReviewOutpassHODPage extends StatelessWidget {
   final String? reason;
@@ -27,168 +26,132 @@ class ReviewOutpassHODPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Approve Outpasses'),
+        automaticallyImplyLeading: true, // Remove the back arrow
         backgroundColor: Colors.white,
       ),
       body: Center(
         child: Column(
           children: [
-            Container(
-              width: 350,
-              height: 150,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: const Color(0xFFECECEC),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('Munna Shaheem P',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text(
-                        'BE CSE 2023-27',
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Reason : Going To Native',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      Text(
-                        'Date of Leaving : 2024-08-22',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      Text(
-                        'Time of Leaving : 13:10',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.black, // Background color
-                          ),
-                          onPressed: () {
-                            // Add your onPressed logic here
-                          },
-                          child: const Text('View Request'),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'ID: OP000001',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            buildOutpassCard(
+              context,
+              'Munna Shaheem P',
+              'BE CSE 2023-27',
+              reason!,
+              DateFormat('yyyy-MM-dd').format(date),
+              time,
+              'OP000001',
             ),
-            SizedBox(
-              height: 16,
-            ),
-            Container(
-              width: 350,
-              height: 150,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: const Color(0xFFECECEC),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text('Muhammed Zidan VK',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Text(
-                        'BE CSE 2023-27',
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Reason : Fever',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      Text(
-                        'Date of Leaving : 2024-08-22',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                      Text(
-                        'Time of Leaving : 13:20',
-                        style: TextStyle(
-                          fontSize: 14,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.black, // Background color
-                          ),
-                          onPressed: () {
-                            // Add your onPressed logic here
-                          },
-                          child: const Text('View Request'),
-                        ),
-                        const SizedBox(height: 4),
-                        const Text(
-                          'ID: OP000002',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            const SizedBox(height: 16),
+            buildOutpassCard(
+              context,
+              'Muhammed Zidan VK',
+              'BE CSE 2023-27',
+              'Fever',
+              '2024-08-22',
+              '13:20',
+              'OP000002',
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildOutpassCard(
+    BuildContext context,
+    String name,
+    String course,
+    String reason,
+    String date,
+    String time,
+    String id,
+  ) {
+    return Container(
+      width: 350,
+      height: 150,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: const Color(0xFFECECEC),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  )),
+              Text(
+                course,
+                style: const TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'Reason : $reason',
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              Text(
+                'Date of Leaving : $date',
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              Text(
+                'Time of Leaving : $time',
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          Positioned(
+            top: 0,
+            right: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.black, // Background color
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ApprovalPageHOD(
+                          id: id,
+                          name: name,
+                          course: course,
+                          reason: reason,
+                          date: date,
+                          time: time,
+                        ),
+                      ),
+                    );
+                  },
+                  child: const Text('View Request'),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'ID: $id',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
