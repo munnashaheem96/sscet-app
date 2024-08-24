@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:college_app/home/contents/outpass/hod/success_approved.dart';
-import 'package:college_app/home/contents/outpass/hod/success_declined.dart';
+import 'package:college_app/home/contents/outpass/class_advisor/success_approved.dart';
+import 'package:college_app/home/contents/outpass/class_advisor/success_declined.dart';
 
-class ApprovalPageHOD extends StatelessWidget {
+class ApprovalPageClassAdvisor extends StatelessWidget {
   final String id;
   final String name;
   final String course;
@@ -10,7 +10,7 @@ class ApprovalPageHOD extends StatelessWidget {
   final String date;
   final String time;
 
-  const ApprovalPageHOD({
+  const ApprovalPageClassAdvisor({
     Key? key,
     required this.id,
     required this.name,
@@ -45,9 +45,7 @@ class ApprovalPageHOD extends StatelessWidget {
                 buildDetailContainer('Reason', reason),
                 buildDetailContainer('Date of Leaving', date),
                 buildDetailContainer('Time of Leaving', time),
-                SizedBox(
-                  height: 25,
-                ),
+                const SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -73,9 +71,7 @@ class ApprovalPageHOD extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 25,
-                )
+                const SizedBox(height: 25),
               ],
             ),
           ),
@@ -150,10 +146,7 @@ class ApprovalPageHOD extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => isApprove
-                        ? const SuccessApprovedPage(
-                            personName: '',
-                            facultyRole: '',
-                          )
+                        ? const SuccessApprovedPage(personName: '', facultyRole: '',)
                         : const SuccessDeclinedPage(),
                   ),
                 );

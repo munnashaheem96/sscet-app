@@ -1,7 +1,7 @@
-// security_home.dart
 import 'package:flutter/material.dart';
 import 'package:college_app/home/navbar/settings.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'contents/outpass/outpass_verify_security.dart';
 
 class SecurityHomePage extends StatelessWidget {
   final String personName;
@@ -20,7 +20,7 @@ class SecurityHomePage extends StatelessWidget {
         children: [
           buildWelcomeText(),
           buildNotificationIcon(),
-          // Implement Security Layout here
+          buildSecurityLayout(context),
         ],
       ),
     );
@@ -102,6 +102,146 @@ class SecurityHomePage extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: const Icon(Icons.notifications_active, size: 28.0),
+      ),
+    );
+  }
+
+  Widget buildSecurityLayout(BuildContext context) {
+    return Positioned(
+      top: 100,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 70, 0, 0),
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
+            color: Colors.white,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(25, 5, 25, 0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildContainerWithIconAndText(
+                        'Visitor Management',
+                        'assets/icons/visitor.png',
+                        () {
+                          // Implement navigation to Visitor Management Page
+                        },
+                      ),
+                      const SizedBox(width: 10),
+                      _buildContainerWithIconAndText(
+                        'Vehicle Entry Log',
+                        'assets/icons/vehicle.png',
+                        () {
+                          // Implement navigation to Vehicle Entry Log Page
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildContainerWithIconAndText(
+                        'Outpass Verification',
+                        'assets/icons/outpass_verification.png',
+                        () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const OutpassVerificationPage()),
+                          );
+                        },
+                      ),
+
+                      const SizedBox(width: 10),
+                      _buildContainerWithIconAndText(
+                        'Emergency Contact',
+                        'assets/icons/department.png',
+                        () {
+                          // Implement navigation to Emergency Contact Page
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     _buildContainerWithIconAndText(
+                  //       'Incident Reports',
+                  //       'assets/icons/incident.png',
+                  //       () {
+                  //         // Implement navigation to Incident Reports Page
+                  //       },
+                  //     ),
+                  //     const SizedBox(width: 10),
+                  //     _buildContainerWithIconAndText(
+                  //       'Patrol Schedule',
+                  //       'assets/icons/patrol.png',
+                  //       () {
+                  //         // Implement navigation to Patrol Schedule Page
+                  //       },
+                  //     ),
+                  //   ],
+                  // ),
+                  // const SizedBox(height: 25.0),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildContainerWithIconAndText(
+      String title, String iconPath, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 150,
+        height: 150,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              iconPath,
+              width: 50,
+              height: 50,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

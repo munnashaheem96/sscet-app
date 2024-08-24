@@ -1,9 +1,9 @@
+import 'package:college_app/home/contents/outpass/review_outpassclassadvisor.dart';
 import 'package:flutter/material.dart';
 import 'package:college_app/home/navbar/settings.dart';
 import 'contents/announcements.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:college_app/home/contents/outpass/review_outpasshod.dart';
-
 
 class FacultyHomePage extends StatelessWidget {
   final String personName;
@@ -156,123 +156,134 @@ class FacultyHomePage extends StatelessWidget {
   }
 
   Widget _buildHODLayout(BuildContext context) {
-  return Column(
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildContainerWithIconAndText(
-            'Manage Departments',
-            'assets/icons/department.png',
-            () {
-              // Add your navigation code here
-            },
-          ),
-          const SizedBox(width: 10),
-          _buildContainerWithIconAndText(
-            'Review Faculty',
-            'assets/icons/review.png',
-            () {
-              // Add your navigation code here
-            },
-          ),
-        ],
-      ),
-      const SizedBox(height: 15),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildContainerWithIconAndText(
-            'Approve Outpasses',
-            'assets/icons/outpass.webp',
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ReviewOutpassHODPage(
-                    reason: 'Personal Work',
-                    date: DateTime.now(),
-                    time: '10:00 AM',
-                    type: 'Hosteller',
-                    returnDate: DateTime.now().add(const Duration(days: 1)),
-                    returnTime: '6:00 PM',
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildContainerWithIconAndText(
+              'Manage Departments',
+              'assets/icons/department.png',
+              () {
+                // Add your navigation code here
+              },
+            ),
+            const SizedBox(width: 10),
+            _buildContainerWithIconAndText(
+              'Review Faculty',
+              'assets/icons/review.png',
+              () {
+                // Add your navigation code here
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildContainerWithIconAndText(
+              'Approve Outpasses',
+              'assets/icons/outpass.webp',
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReviewOutpassHODPage(
+                      reason: 'Personal Work',
+                      date: DateTime.now(),
+                      time: '10:00 AM',
+                      type: 'Hosteller',
+                      returnDate: DateTime.now().add(const Duration(days: 1)),
+                      returnTime: '6:00 PM',
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-          const SizedBox(width: 10),
-          _buildContainerWithIconAndText(
-            'View Announcements',
-            'assets/icons/announcement.png',
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AnnouncementsPage(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-    ],
-  );
-}
-
+                );
+              },
+            ),
+            const SizedBox(width: 10),
+            _buildContainerWithIconAndText(
+              'View Announcements',
+              'assets/icons/announcement.png',
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AnnouncementsPage(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 
   Widget _buildClassAdvisorLayout(BuildContext context) {
-  return Column(
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildContainerWithIconAndText(
-            'Mark Attendance',
-            'assets/icons/attendance.png',
-            () {
-              // Add your navigation code here
-            },
-          ),
-          const SizedBox(width: 10),
-          _buildContainerWithIconAndText(
-            'View Students',
-            'assets/icons/students.png',
-            () {
-              // Add your navigation code here
-            },
-          ),
-        ],
-      ),
-      const SizedBox(height: 15),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildContainerWithIconAndText(
-            'View Announcements',
-            'assets/icons/announcement.png',
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AnnouncementsPage(),
-                ),
-              );
-            },
-          ),
-          const SizedBox(width: 10),
-          _buildContainerWithIconAndText(
-            'Approve Outpasses',
-            'assets/icons/outpass.webp',
-            () {
-            },
-          ),
-        ],
-      ),
-    ],
-  );
-}
-
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildContainerWithIconAndText(
+              'Mark Attendance',
+              'assets/icons/attendance.png',
+              () {
+                // Add your navigation code here
+              },
+            ),
+            const SizedBox(width: 10),
+            _buildContainerWithIconAndText(
+              'View Students',
+              'assets/icons/students.png',
+              () {
+                // Add your navigation code here
+              },
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildContainerWithIconAndText(
+              'View Announcements',
+              'assets/icons/announcement.png',
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AnnouncementsPage(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(width: 10),
+            _buildContainerWithIconAndText(
+              'Approve Outpasses',
+              'assets/icons/outpass.webp',
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReviewOutpassClassAdvisorPage(
+                      reason: 'Personal Work',
+                      date: DateTime.now(),
+                      time: '10:00 AM',
+                      type: 'Hosteller',
+                      returnDate: DateTime.now().add(const Duration(days: 1)),
+                      returnTime: '6:00 PM',
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 
   Widget _buildSubjectFacultyLayout(BuildContext context) {
     return Column(

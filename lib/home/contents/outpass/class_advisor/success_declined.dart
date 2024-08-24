@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:college_app/home/faculty_home.dart';
+import 'package:college_app/home/contents/outpass/review_outpasshod.dart';
 
-class SuccessApprovedPage extends StatelessWidget {
-  final String personName;
-  final String facultyRole;
-
-  const SuccessApprovedPage({
-    Key? key,
-    required this.personName,
-    required this.facultyRole,
-  }) : super(key: key);
+class SuccessDeclinedPage extends StatelessWidget {
+  const SuccessDeclinedPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +13,13 @@ class SuccessApprovedPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.check_circle_outline,
-              color: Colors.green,
+              Icons.cancel_outlined,
+              color: Colors.red,
               size: 100,
             ),
             const SizedBox(height: 20),
             const Text(
-              'Outpass Successfully Approved',
+              'Outpass Successfully Declined',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
@@ -35,9 +28,11 @@ class SuccessApprovedPage extends StatelessWidget {
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => FacultyHomePage(
-                      personName: personName,
-                      facultyRole: facultyRole,
+                    builder: (context) => ReviewOutpassHODPage(
+                      reason: "Reason", // Placeholder or use actual data
+                      date: DateTime.now(), // Placeholder or use actual data
+                      time: "Time", // Placeholder or use actual data
+                      type: "Type", // Placeholder or use actual data
                     ),
                   ),
                   (Route<dynamic> route) => false,
@@ -47,7 +42,7 @@ class SuccessApprovedPage extends StatelessWidget {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
               ),
-              child: const Text('Back to Homepage'),
+              child: const Text('Back'),
             ),
           ],
         ),

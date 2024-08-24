@@ -46,6 +46,8 @@ dependencies:
   qr_flutter: ^4.1.0
   table_calendar: ^3.1.2
   pie_chart: ^5.4.0
+  qr_code_scanner: ^1.0.1
+  barcode_scan2: ^4.3.3
    
 dev_dependencies:
   flutter_test:
@@ -89,6 +91,10 @@ flutter:
     - assets\icons\outpasssend.png
     - assets/icons/department.png
     - assets/icons/review.png
+    - assets/icons/students.png
+    - assets/icons/visitor.png
+    - assets/icons/vehicle.png
+    - assets/icons/outpass_verification.png
 
   #   - images/a_dot_ham.jpeg
 
